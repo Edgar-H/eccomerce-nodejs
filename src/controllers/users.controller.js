@@ -16,7 +16,7 @@ dotenv.config({ path: './config.env' });
 exports.loginUser = catchAsync(async (req, res, next) => {
   const { userLogin, password } = req.body;
 
-  if (!userLogin || userLogin === 0) {
+  if (!userLogin && userLogin === 0) {
     return next(new AppError(400, 'Email or username is required'));
   }
   if (!password) {
